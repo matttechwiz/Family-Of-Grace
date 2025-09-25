@@ -555,7 +555,7 @@ body{
     <section class="section">
       <div class="badge"> FAMILY OF GRACE MONTHLY BIBLE QUIZ • ISAIAH</div>
       <h1>Answer 15 questions in 300 seconds</h1>
-      <p class="muted">Questions are randomly drawn from the Book of Isaiah. NOTE:Submit the screenshot of your score!</p>
+      <p class="muted">Questions are randomly drawn from the Book of Genesis 35. NOTE:Submit the screenshot of your score!</p>
 
       <div class="card" style="display:grid; gap:14px">
         <div class="timer"><div id="bar" class="bar"></div></div>
@@ -610,21 +610,21 @@ const VALID_CODES = [
 
 // === Quiz Questions ===
 const BANK = [
-  {q:" What specific command did God give Jacob at the beginning of Genesis 35? ", options:[" Go back to your father Isaac in Hebron "," Arise, go up to Bethel and dwell there, and make an altar to God "," Gather your family and leave Canaan immediately ","Return to Haran where you came from"], a:1},
-  {q:"What did Jacob demand his household to put away before going to Bethel? ", options:["Their livestock and possessions ","Their foreign gods, purify themselves, and change their garments","Their weapons and tools of war ","Their jewelry and fine clothing"], a:1},
-  {q:"Where did Jacob hide the foreign gods and earrings his household gave him? ", options:[" In a cave near Shechem ","Under the oak tree near Shechem "," In a well outside the city "," He burned them completely"], a:1},
-  {q:"What protected Jacob's family as they journeyed from Shechem to Bethel? ", options:["A large army of servants ","The terror of God fell upon the surrounding cities ","They traveled only at night to avoid detection ","Angels encamped around them visibly"], a:1},
-  {q:" What two names did God use when He appeared to Jacob at Bethel? ", options:[" Jehovah and Adonai "," El Shaddai (God Almighty) and God ","The God of Abraham and Isaac ","The Ancient of Days and the Most High"], a:0},
-  {q:"What specific promise regarding Jacob's descendants did God renew at Bethel? ", options:[" They would be as numerous as the stars "," Kings shall come from your body, and a nation and company of nations shall be of you"," They would inherit all the land from Egypt to Euphrates ","High Priest"], a:1},
-  {q:"Who died during this journey and where was she buried? ", options:[" Rachel, near Bethlehem "," Leah, near Hebron "," Deborah (Rebekah's nurse), below Bethel under an oak ","Bilhah, near Paddan-aram"], a:2},
-  {q:" What name was given to the oak tree where Deborah was buried? ", options:["Oak of Weeping (Allon-bachuth) "," Oak of Remembrance ","Oak of Sorrow ","Oak of the Nurse"], a:0},
-  {q:"Where was Rachel buried and what did Jacob set up there? ", options:[" In Hebron; he built an altar "," In Bethlehem; he set up a pillar on her grave"," Near Bethel; he planted an oak tree "," In the way to Ephrath; he erected a memorial stone"], a:3},
-  {q:"What was Rachel doing when she died? ", options:["She was sick with fever for many days ","She died in childbirth, giving birth to Benjamin ","She died suddenly while they were traveling ","She died of old age in Jacob's arms"], a:1},
-  {q:" What name did Rachel give her son before she died, and what did Jacob call him instead?", options:["She called him Benoni (son of my sorrow); Jacob called him Benjamin ","She called him Benjamin; Jacob kept the same name ","She called him Naphtali; Jacob called him Benjamin ","JehoiakimShe called him Ben-oni; Jacob called him Israel"], a:0},
-  {q:" What sin did Reuben commit that is recorded in this chapter? ", options:["He stole from his father's possessions ","He went in to Bilhah, his father's concubine "," He worshiped the foreign gods ","He disobeyed his father's command to go to Bethel"], a:1},
-  {q:" How old was Isaac when he died? ", options:[" 147 years old ","175 years old"," 180 years old ","200 years old"], a:2},
-  {q:"Who buried Isaac and where? ", options:[" Only Jacob buried him in Hebron ","His sons Esau and Jacob buried him in the cave of Machpelah ","All twelve sons buried him near Bethel ","Only Esau buried him in Mount Seir"], a:1},
-  {q:" According to Genesis 35, how many sons did Jacob have in total by the end of this chapter? ", options:[" Ten sons ","Eleven sons ","Twelve sons ","Thirteen sons"], a:2},
+  {q:" What specific command did God give Jacob at the beginning of Genesis 35? ", options:["Go back to your father Isaac in Hebron","Arise, go up to Bethel and dwell there, and make an altar to God","Gather your family and leave Canaan immediately","Return to Haran where you came from"], a:1},
+  {q:"What did Jacob demand his household to put away before going to Bethel? ", options:["Their livestock and possessions","Their foreign gods, purify themselves, and change their garments","Their weapons and tools of war","Their jewelry and fine clothing"], a:1},
+  {q:"Where did Jacob hide the foreign gods and earrings his household gave him? ", options:["In a cave near Shechem","Under the oak tree near Shechem","In a well outside the city","He burned them completely"], a:1},
+  {q:"What protected Jacob's family as they journeyed from Shechem to Bethel? ", options:["A large army of servants","The terror of God fell upon the surrounding cities","They traveled only at night to avoid detection","Angels encamped around them visibly"], a:1},
+  {q:" What two names did God use when He appeared to Jacob at Bethel? ", options:["Jehovah and Adonai","El Shaddai (God Almighty) and God","The God of Abraham and Isaac","The Ancient of Days and the Most High"], a:1},
+  {q:"What specific promise regarding Jacob's descendants did God renew at Bethel? ", options:["They would be as numerous as the stars","Kings shall come from your body, and a nation and company of nations shall be of you","They would inherit all the land from Egypt to Euphrates","High Priest"], a:1},
+  {q:"Who died during this journey and where was she buried? ", options:["Rachel, near Bethlehem","Leah, near Hebron","Deborah (Rebekah's nurse), below Bethel under an oak","Bilhah, near Paddan-aram"], a:2},
+  {q:" What name was given to the oak tree where Deborah was buried? ", options:["Oak of Weeping (Allon-bachuth)","Oak of Remembrance","Oak of Sorrow","Oak of the Nurse"], a:0},
+  {q:"Where was Rachel buried and what did Jacob set up there? ", options:["In Hebron; he built an altar","In Bethlehem; he set up a pillar on her grave","Near Bethel; he planted an oak tree","In the way to Ephrath; he erected a memorial stone"], a:3},
+  {q:"What was Rachel doing when she died? ", options:["She was sick with fever for many days","She died in childbirth, giving birth to Benjamin","She died suddenly while they were traveling","She died of old age in Jacob's arms"], a:1},
+  {q:" What name did Rachel give her son before she died, and what did Jacob call him instead?", options:["She called him Benoni (son of my sorrow); Jacob called him Benjamin ","She called him Benjamin; Jacob kept the same name","She called him Naphtali; Jacob called him Benjamin ","JehoiakimShe called him Ben-oni; Jacob called him Israel"], a:0},
+  {q:" What sin did Reuben commit that is recorded in this chapter? ", options:["He stole from his father's possessions","He went in to Bilhah, his father's concubine","He worshiped the foreign gods","He disobeyed his father's command to go to Bethel"], a:1},
+  {q:" How old was Isaac when he died? ", options:["147 years old","175 years old","180 years old","200 years old"], a:2},
+  {q:"Who buried Isaac and where? ", options:["Only Jacob buried him in Hebron","His sons Esau and Jacob buried him in the cave of Machpelah","All twelve sons buried him near Bethel","Only Esau buried him in Mount Seir"], a:1},
+  {q:" According to Genesis 35, how many sons did Jacob have in total by the end of this chapter? ", options:["Ten sons","Eleven sons","Twelve sons","Thirteen sons"], a:2},
 ];
 
 const TOTAL = 15;
@@ -817,3 +817,4 @@ loadResults();
 </script>
 </body>
 </html>
+
