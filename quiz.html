@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Family of Grace Quiz</title>
+  <style>
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .overlay .card {
+      max-width: 400px;
+      width: 100%;
+    }
+    .logo img{
+    height: 40px;
+    width: 40px;
+  }
+
+
+
+
+  
+:root{
+  --brand:#5b8def;
+  --brand-dark:#3b6fd6;
+  --text:#0f172a;
+  --muted:#64748b;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --accent:#22c55e;
+  --danger:#ef4444;
+  --warning:#f59e0b;
+  --radius:18px;
+  --shadow: 0 10px 30px rgba(2,6,23,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+.container{
+  width:min(1100px, 92%);
+  margin-inline:auto;
+}
+
+.navbar{
+  position:sticky; top:0; z-index:50;
+  background:rgba(248,250,252,.8);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid #e2e8f0;
+}
+.navbar .inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
+}
+.brand .logo{
+  width:38px; height:38px; display:grid; place-items:center; border-radius:12px; 
+  background:linear-gradient(135deg,var(--brand),#93c5fd);
+  color:white; font-weight:900; box-shadow:var(--shadow);
+}
+.nav-links{display:flex; gap:18px; align-items:center;}
+.nav-links a{
+  text-decoration:none; color:var(--text); font-weight:600; padding:10px 14px; border-radius:12px;
+}
+.nav-links a.cta{
+  background:var(--brand); color:white; box-shadow:var(--shadow);
+}
+.nav-links a:hover{background:#e2e8f0}
+
+.hero{
+  display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
+  padding:56px 0 24px;
+}
+.hero h1{
+  font-size:clamp(32px, 3.8vw, 54px);
+  line-height:1.1; margin:0 0 12px;
+}
+.hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
+.hero .card{
+  background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+}
+
+.grid-3{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.card{
+  background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+}
+
+.section{padding:40px 0}
+.section h2{font-size:28px; margin:0 0 14px}
+.muted{color:var(--muted)}
+
+.list{
+  display:grid; gap:10px;
+}
+.badge{
+  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
+  background:#e2e8f0; color:#0f172a; font-weight:700; letter-spacing:.3px;
+}
+
+.footer{
+  margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0; color:var(--muted);
+}
+
+.hero-illustration{
+  border-radius:var(--radius);
+  height:100%;
+  min-height:260px;
+  background: radial-gradient(1200px 300px at -10% -40%, #c7d2fe 0, transparent 60%),
+              radial-gradient(600px 240px at 80% 0%, #bfdbfe 0, transparent 60%),
+              linear-gradient(135deg, #f0f9ff, #ffffff 60%);
+  box-shadow:var(--shadow);
+  border:1px solid #e2e8f0;
+  display:grid; place-items:center;
+}
+.hero-illustration .ring{
+  width:160px; height:160px; border-radius:999px;
+  border:14px solid rgba(59,112,214,.15);
+  display:grid; place-items:center;
+  animation: spin 18s linear infinite;
+}
+.hero-illustration .dot{
+  width:18px; height:18px; border-radius:999px; background:var(--brand);
+  box-shadow:0 0 0 10px rgba(91,141,239,.12), 0 0 0 22px rgba(91,141,239,.08);
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.btn{
+  border:0; padding:12px 16px; border-radius:12px; font-weight:700;
+  background:var(--brand); color:white; cursor:pointer; box-shadow:var(--shadow);
+}
+.btn.secondary{background:#e2e8f0; color:#0f172a}
+.btn.danger{background:var(--danger)}
+.btn.warning{background:var(--warning)}
+.btn:disabled{opacity:.6; cursor:not-allowed}
+
+.table{
+  width:100%; border-collapse:separate; border-spacing:0 10px;
+}
+.table thead th{font-size:12px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted)}
+.table tbody tr{
+  background:var(--card); box-shadow:var(--shadow);
+}
+.table td, .table th{padding:12px 14px}
+.table tbody tr td:first-child, .table thead th:first-child{border-top-left-radius:12px; border-bottom-left-radius:12px}
+.table tbody tr td:last-child, .table thead th:last-child{border-top-right-radius:12px; border-bottom-right-radius:12px}
+
+.input, select, .date{
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid #e2e8f0; background:white;
+}
+
+.kpis{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+}
+.kpi{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+.kpi .value{font-size:24px; font-weight:800}
+
+.timer{
+  height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden;
+}
+.timer .bar{height:100%; width:100%; background:var(--accent); transition:width .3s linear}
+
+.notice{
+  border-left:4px solid var(--brand);
+  background:#eff6ff; color:#0c4a6e;
+  padding:12px 14px; border-radius:12px; margin:14px 0;
+}
+
+@media (max-width: 920px){
+  .hero{grid-template-columns:1fr; padding-top:32px}
+  .grid-3{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width: 520px){
+  .nav-links{display:none}
+}
+/* .what-button button a {
+ 
+  text-decoration: none;
+  color: black;
+
+}
+.what-button button{
+  height: 30px;
+  width: 160px;
+  background-color: #93c5fd;
+  border: none;
+  border-radius: 10px;
+} */
+.founder-section {
+  padding: 40px 0;
+}
+
+.founder-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  align-items: center;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.founder-image img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.founder-content h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: var(--text);
+}
+
+.founder-content p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .founder-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .founder-image img {
+    margin-inline: auto;
+  }
+}
+.logo img{
+  height: 40px;
+  width: 40px;
+}
+.write p{
+  text-decoration: none;
+}
+:root{
+  --brand:#5b8def;
+  --brand-dark:#3b6fd6;
+  --text:#0f172a;
+  --muted:#64748b;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --accent:#22c55e;
+  --danger:#ef4444;
+  --warning:#f59e0b;
+  --radius:18px;
+  --shadow: 0 10px 30px rgba(2,6,23,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+.container{
+  width:min(1100px, 92%);
+  margin-inline:auto;
+}
+
+.navbar{
+  position:sticky; top:0; z-index:50;
+  background:rgba(248,250,252,.8);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid #e2e8f0;
+}
+.navbar .inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
+}
+.brand .logo{
+  width:38px; height:38px; display:grid; place-items:center; border-radius:12px; 
+  background:linear-gradient(135deg,var(--brand),#93c5fd);
+  color:white; font-weight:900; box-shadow:var(--shadow);
+}
+.nav-links{display:flex; gap:18px; align-items:center;}
+.nav-links a{
+  text-decoration:none; color:var(--text); font-weight:600; padding:10px 14px; border-radius:12px;
+}
+.nav-links a.cta{
+  background:var(--brand); color:white; box-shadow:var(--shadow);
+}
+.nav-links a:hover{background:#e2e8f0}
+
+.hero{
+  display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
+  padding:56px 0 24px;
+}
+.hero h1{
+  font-size:clamp(28px, 3.5vw, 54px);
+  line-height:1.1; margin:0 0 12px;
+}
+.hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
+.hero .card{
+  background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+}
+
+.grid-3{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.card{
+  background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+}
+
+.section{padding:40px 0}
+.section h2{font-size:28px; margin:0 0 14px}
+.muted{color:var(--muted)}
+
+.list{
+  display:grid; gap:10px;
+}
+.badge{
+  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
+  background:#e2e8f0; color:#0f172a; font-weight:700; letter-spacing:.3px;
+}
+
+.footer{
+  margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0; color:var(--muted);
+}
+
+.hero-illustration{
+  border-radius:var(--radius);
+  height:100%;
+  min-height:260px;
+  background: radial-gradient(1200px 300px at -10% -40%, #c7d2fe 0, transparent 60%),
+              radial-gradient(600px 240px at 80% 0%, #bfdbfe 0, transparent 60%),
+              linear-gradient(135deg, #f0f9ff, #ffffff 60%);
+  box-shadow:var(--shadow);
+  border:1px solid #e2e8f0;
+  display:grid; place-items:center;
+}
+.hero-illustration .ring{
+  width:160px; height:160px; border-radius:999px;
+  border:14px solid rgba(59,112,214,.15);
+  display:grid; place-items:center;
+  animation: spin 18s linear infinite;
+}
+.hero-illustration .dot{
+  width:18px; height:18px; border-radius:999px; background:var(--brand);
+  box-shadow:0 0 0 10px rgba(91,141,239,.12), 0 0 0 22px rgba(91,141,239,.08);
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.btn{
+  border:0; padding:12px 16px; border-radius:12px; font-weight:700;
+  background:var(--brand); color:white; cursor:pointer; box-shadow:var(--shadow);
+}
+.btn.secondary{background:#e2e8f0; color:#0f172a}
+.btn.danger{background:var(--danger)}
+.btn.warning{background:var(--warning)}
+.btn:disabled{opacity:.6; cursor:not-allowed}
+
+.table{
+  width:100%; border-collapse:separate; border-spacing:0 10px;
+}
+.table thead th{font-size:12px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted)}
+.table tbody tr{
+  background:var(--card); box-shadow:var(--shadow);
+}
+.table td, .table th{padding:12px 14px}
+.table tbody tr td:first-child, .table thead th:first-child{border-top-left-radius:12px; border-bottom-left-radius:12px}
+.table tbody tr td:last-child, .table thead th:last-child{border-top-right-radius:12px; border-bottom-right-radius:12px}
+
+.input, select, .date{
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid #e2e8f0; background:white;
+}
+
+.kpis{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+}
+.kpi{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+.kpi .value{font-size:24px; font-weight:800}
+
+.timer{
+  height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden;
+}
+.timer .bar{height:100%; width:100%; background:var(--accent); transition:width .3s linear}
+
+.notice{
+  border-left:4px solid var(--brand);
+  background:#eff6ff; color:#0c4a6e;
+  padding:12px 14px; border-radius:12px; margin:14px 0;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+@media (max-width: 920px){
+  .hero{grid-template-columns:1fr; padding-top:32px; text-align:center;}
+  .hero-illustration{order:-1;}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width: 600px){
+  .navbar .inner{flex-direction:column; align-items:flex-start; gap:10px}
+  .nav-links{flex-direction:column; width:100%; display:none}
+  .nav-links a{width:100%; text-align:left}
+
+  .grid-3{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr}
+  .hero h1{font-size:22px}
+  .hero p{font-size:16px}
+  .logo img{height:32px; width:32px}
+  
+  .table{display:block; overflow-x:auto; white-space:nowrap}
+}
+
+/* Founder Section */
+.founder-section {
+  padding: 40px 0;
+}
+.founder-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  align-items: center;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.founder-image img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+.founder-content h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: var(--text);
+}
+.founder-content p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .founder-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .founder-image img {
+    margin-inline: auto;
+    max-width: 180px;
+  }
+}
+
+.logo img{height:40px; width:40px;}
+.write p{text-decoration:none;}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Show nav when active */
+.nav-links.active {
+  display: flex !important;
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .nav-links a {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+        <div class="logo"><img src="./photo_2025-09-03_01-35-31-removebg-preview.png" alt=""></div>
+        <div>Family of Grace </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <!-- <a href="attendance.html">Attendance</a> -->
+        <!-- <a href="quiz.html" class="cta">Quiz</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login Overlay -->
+  <div class="overlay" id="loginOverlay">
+    <div class="card" style="padding:20px; text-align:center">
+      <h2>Enter Details</h2>
+      <p class="muted">Provide your name and access code to start</p>
+      <input type="text" id="playerName" class="input" placeholder="Your Name" style="width:100%;margin-bottom:10px">
+      <input type="text" id="playerCode" class="input" placeholder="Access Code" style="width:100%;margin-bottom:10px">
+      <button id="startBtn" class="btn" style="width:100%">Start Quiz</button>
+    </div>
+  </div>
+
+  <main class="container" style="display:none" id="quizMain">
+    <section class="section">
+      <div class="badge"> FAMILY OF GRACE MONTHLY BIBLE QUIZ • ISAIAH</div>
+      <h1>Answer 15 questions in 300 seconds</h1>
+      <p class="muted">Questions are randomly drawn from the Book of Isaiah. NOTE:Submit the screenshot of your score!</p>
+
+      <div class="card" style="display:grid; gap:14px">
+        <div class="timer"><div id="bar" class="bar"></div></div>
+        <div style="display:flex; gap:10px; align-items:center; justify-content:space-between">
+          <div><strong>Time Left: <span id="timeLeft">300</span>s</strong></div>
+          <div class="muted">Score: <span id="scoreNow">0</span>/15</div>
+        </div>
+        <form id="quizForm" class="list"></form>
+        <div style="display:flex; gap:10px">
+          <button id="submitBtn" class="btn">Submit Answers</button>
+          <button id="retryBtn" class="btn secondary" type="button"></button>
+        </div>
+      </div>
+      <div id="result" class="notice" style="display:none"></div>
+    </section>
+
+    <section class="section">
+      <h2>Participants Results</h2>
+      <div class="card" style="overflow:auto">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Name</th>
+              <th>Code</th>
+              <th>Score</th>
+              <th>Time Used (s)</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+      <button id="exportResultsBtn" class="btn warning" style="margin-top:10px">Export Results CSV</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Family of Grace</div>
+  </footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// === Codes ===
+const VALID_CODES = [
+  "FG101","FG102","FG103","FG104","FG105",
+  "FG106","FG107","FG108","FG109","FG110",
+  "FG111","FG112","FG113","FG114","FG115",
+  "FG116","FG117","FG118","FG119","FG120"
+];
+
+// === Quiz Questions ===
+const BANK = [
+  {q:" What specific command did God give Jacob at the beginning of Genesis 35? ", options:[" Go back to your father Isaac in Hebron "," Arise, go up to Bethel and dwell there, and make an altar to God "," Gather your family and leave Canaan immediately ","Return to Haran where you came from"], a:1},
+  {q:"What did Jacob demand his household to put away before going to Bethel? ", options:["Their livestock and possessions ","Their foreign gods, purify themselves, and change their garments","Their weapons and tools of war ","Their jewelry and fine clothing"], a:1},
+  {q:"Where did Jacob hide the foreign gods and earrings his household gave him? ", options:[" In a cave near Shechem ","Under the oak tree near Shechem "," In a well outside the city "," He burned them completely"], a:1},
+  {q:"What protected Jacob's family as they journeyed from Shechem to Bethel? ", options:["A large army of servants ","The terror of God fell upon the surrounding cities ","They traveled only at night to avoid detection ","Angels encamped around them visibly"], a:1},
+  {q:" What two names did God use when He appeared to Jacob at Bethel? ", options:[" Jehovah and Adonai "," El Shaddai (God Almighty) and God ","The God of Abraham and Isaac ","The Ancient of Days and the Most High"], a:0},
+  {q:"What specific promise regarding Jacob's descendants did God renew at Bethel? ", options:[" They would be as numerous as the stars "," Kings shall come from your body, and a nation and company of nations shall be of you"," They would inherit all the land from Egypt to Euphrates ","High Priest"], a:1},
+  {q:"Who died during this journey and where was she buried? ", options:[" Rachel, near Bethlehem "," Leah, near Hebron "," Deborah (Rebekah's nurse), below Bethel under an oak ","Bilhah, near Paddan-aram"], a:2},
+  {q:" What name was given to the oak tree where Deborah was buried? ", options:["Oak of Weeping (Allon-bachuth) "," Oak of Remembrance ","Oak of Sorrow ","Oak of the Nurse"], a:0},
+  {q:"Where was Rachel buried and what did Jacob set up there? ", options:[" In Hebron; he built an altar "," In Bethlehem; he set up a pillar on her grave"," Near Bethel; he planted an oak tree "," In the way to Ephrath; he erected a memorial stone"], a:3},
+  {q:"What was Rachel doing when she died? ", options:["She was sick with fever for many days ","She died in childbirth, giving birth to Benjamin ","She died suddenly while they were traveling ","She died of old age in Jacob's arms"], a:1},
+  {q:" What name did Rachel give her son before she died, and what did Jacob call him instead?", options:["She called him Benoni (son of my sorrow); Jacob called him Benjamin ","She called him Benjamin; Jacob kept the same name ","She called him Naphtali; Jacob called him Benjamin ","JehoiakimShe called him Ben-oni; Jacob called him Israel"], a:0},
+  {q:" What sin did Reuben commit that is recorded in this chapter? ", options:["He stole from his father's possessions ","He went in to Bilhah, his father's concubine "," He worshiped the foreign gods ","He disobeyed his father's command to go to Bethel"], a:1},
+  {q:" How old was Isaac when he died? ", options:[" 147 years old ","175 years old"," 180 years old ","200 years old"], a:2},
+  {q:"Who buried Isaac and where? ", options:[" Only Jacob buried him in Hebron ","His sons Esau and Jacob buried him in the cave of Machpelah ","All twelve sons buried him near Bethel ","Only Esau buried him in Mount Seir"], a:1},
+  {q:" According to Genesis 35, how many sons did Jacob have in total by the end of this chapter? ", options:[" Ten sons ","Eleven sons ","Twelve sons ","Thirteen sons"], a:2},
+];
+
+const TOTAL = 15;
+let picked = [];
+let timer = 300;
+let intervalId = null;
+let currentPlayer = null;
+let quizStartTime = null;
+
+const form = document.getElementById('quizForm');
+const submitBtn = document.getElementById('submitBtn');
+const retryBtn = document.getElementById('retryBtn');
+const timeLeft = document.getElementById('timeLeft');
+const bar = document.getElementById('bar');
+const result = document.getElementById('result');
+const scoreNow = document.getElementById('scoreNow');
+const resultsBody = document.getElementById('resultsBody');
+
+// Local storage key
+const STORAGE_KEY = "fg_quiz_results";
+
+// === Shuffle helper ===
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function pickQuestions(){
+  const ids = [...Array(BANK.length).keys()];
+  shuffle(ids);
+  return ids.slice(0,TOTAL).map(i=>BANK[i]);
+}
+
+function renderQuiz(){
+  picked = pickQuestions();
+  form.innerHTML = "";
+  picked.forEach((item,idx)=>{
+    const name="q"+idx;
+    const block=document.createElement("div");
+    block.className="card";
+    block.innerHTML=`<strong>Q${idx+1}.</strong> ${item.q}`;
+    const list=document.createElement("div");
+    list.className="list";
+    item.options.forEach((opt,oi)=>{
+      const id=`${name}_${oi}`;
+      const row=document.createElement("label");
+      row.style.display="flex";
+      row.style.alignItems="center";
+      row.style.gap="10px";
+      row.innerHTML=`<input type="radio" name="${name}" value="${oi}" id="${id}"><span>${opt}</span>`;
+      list.appendChild(row);
+    });
+    block.appendChild(list);
+    form.appendChild(block);
+  });
+  scoreNow.textContent="0";
+  result.style.display="none";
+  submitBtn.disabled=false;
+}
+
+function startTimer(){
+  clearInterval(intervalId);
+  timer=300;
+  timeLeft.textContent=timer;
+  bar.style.width="100%";
+  quizStartTime = Date.now();
+  intervalId=setInterval(()=>{
+    timer--;
+    timeLeft.textContent=timer;
+    bar.style.width=(timer/300*300)+"%";
+    if(timer<=0){
+      clearInterval(intervalId);
+      grade(true);
+    }
+  },1000);
+}
+
+function grade(auto=false){
+  clearInterval(intervalId);
+  let score=0;
+  picked.forEach((item,idx)=>{
+    const radios=form.querySelectorAll(`input[name="q${idx}"]`);
+    let chosen=-1;
+    radios.forEach(r=>{if(r.checked)chosen=parseInt(r.value);});
+    const correct=item.a;
+    radios.forEach((r,oi)=>{
+      const label=r.parentElement;
+      label.style.padding="6px 10px";
+      label.style.borderRadius="10px";
+      if(oi===correct){
+        label.style.background="rgba(34,197,94,.15)";
+        label.style.border="1px solid rgba(34,197,94,.35)";
+        label.style.fontWeight="600";
+      }
+      if(oi===chosen && chosen!==correct){
+        label.style.background="rgba(239,68,68,.12)";
+        label.style.border="1px solid rgba(239,68,68,.35)";
+      }
+    });
+    if(chosen===correct)score++;
+  });
+  scoreNow.textContent=String(score);
+  submitBtn.disabled=true;
+  const msg=auto?"Time is up!":"Submitted.";
+  result.style.display="block";
+  result.innerHTML=`<strong>${msg}</strong> You scored <strong>${score}</strong> out of <strong>${TOTAL}</strong>.`;
+
+  const timeUsed = Math.floor((Date.now()-quizStartTime)/1000);
+
+  // Save result
+  const raw=localStorage.getItem(STORAGE_KEY);
+  const data=raw?JSON.parse(raw):[];
+  data.push({
+    name: currentPlayer.name,
+    code: currentPlayer.code,
+    score,
+    time: timeUsed,
+    date: new Date().toLocaleString()
+  });
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+  loadResults();
+}
+
+function loadResults(){
+  const raw=localStorage.getItem(STORAGE_KEY);
+  const data=raw?JSON.parse(raw):[];
+  // sort by score desc, then time asc
+  data.sort((a,b)=>{
+    if(b.score!==a.score) return b.score-a.score;
+    return a.time-b.time;
+  });
+  resultsBody.innerHTML="";
+  data.forEach((rec,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td>${i+1}</td>
+      <td>${rec.name}</td>
+      <td>${rec.code}</td>
+      <td>${rec.score}</td>
+      <td>${rec.time}</td>
+      <td>${rec.date}</td>
+    `;
+    resultsBody.appendChild(tr);
+  });
+}
+
+function exportCSV(){
+  const raw=localStorage.getItem(STORAGE_KEY);
+  if(!raw){alert("No records");return;}
+  const data=JSON.parse(raw);
+  const rows=[["Pos","Name","Code","Score","Time Used","Date"]];
+  data.sort((a,b)=> b.score-a.score || a.time-b.time)
+      .forEach((rec,i)=>{
+        rows.push([i+1,rec.name,rec.code,rec.score,rec.time,rec.date]);
+      });
+  const csv=rows.map(r=>r.join(",")).join("\n");
+  const blob=new Blob([csv],{type:"text/csv"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="quiz_results.csv";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+// === Events ===
+submitBtn.addEventListener("click",e=>{e.preventDefault();grade(false);});
+retryBtn.addEventListener("click",()=>{renderQuiz();startTimer();});
+document.getElementById("exportResultsBtn").addEventListener("click",exportCSV);
+
+// === Login Overlay ===
+document.getElementById("startBtn").addEventListener("click",()=>{
+  const name=document.getElementById("playerName").value.trim();
+  const code=document.getElementById("playerCode").value.trim();
+  if(!name||!code){alert("Enter name and code");return;}
+  if(!VALID_CODES.includes(code)){alert("Invalid code");return;}
+  currentPlayer={name,code};
+  document.getElementById("loginOverlay").style.display="none";
+  document.getElementById("quizMain").style.display="block";
+  renderQuiz();
+  startTimer();
+  loadResults();
+});
+
+// === Init ===
+loadResults();
+</script>
+</body>
+</html>
