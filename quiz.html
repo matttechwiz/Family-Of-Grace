@@ -19,14 +19,10 @@
       width: 100%;
     }
     .logo img{
-    height: 40px;
-    width: 40px;
-  }
+      height: 40px;
+      width: 40px;
+    }
 
-
-
-
-  
 :root{
   --brand:#5b8def;
   --brand-dark:#3b6fd6;
@@ -162,8 +158,9 @@ body{
 .table tbody tr td:first-child, .table thead th:first-child{border-top-left-radius:12px; border-bottom-left-radius:12px}
 .table tbody tr td:last-child, .table thead th:last-child{border-top-right-radius:12px; border-bottom-right-radius:12px}
 
-.input, select, .date{
+.input, select, .date, textarea.sa {
   width:100%; padding:12px 14px; border-radius:12px; border:1px solid #e2e8f0; background:white;
+  font-family:inherit;
 }
 
 .kpis{
@@ -183,8 +180,25 @@ body{
   padding:12px 14px; border-radius:12px; margin:14px 0;
 }
 
+.card.small { padding:14px; }
+
+.reflection {
+  margin-top: 8px;
+  display: grid;
+  gap: 12px;
+}
+
+/* Keep short-answer section visually separated from MCQs */
+.reflection .section-title {
+  font-weight:800;
+  font-size:16px;
+  color:var(--brand-dark);
+  margin-bottom:4px;
+}
+
+/* small responsive */
 @media (max-width: 920px){
-  .hero{grid-template-columns:1fr; padding-top:32px}
+  .hero{grid-template-columns:1fr; padding-top:32px; text-align:center;}
   .grid-3{grid-template-columns:1fr}
   .kpis{grid-template-columns:1fr 1fr}
 }
@@ -192,337 +206,6 @@ body{
 @media (max-width: 520px){
   .nav-links{display:none}
 }
-/* .what-button button a {
- 
-  text-decoration: none;
-  color: black;
-
-}
-.what-button button{
-  height: 30px;
-  width: 160px;
-  background-color: #93c5fd;
-  border: none;
-  border-radius: 10px;
-} */
-.founder-section {
-  padding: 40px 0;
-}
-
-.founder-card {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-  align-items: center;
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
-}
-
-.founder-image img {
-  width: 100%;
-  max-width: 250px;
-  border-radius: var(--radius);
-  object-fit: cover;
-  box-shadow: var(--shadow);
-}
-
-.founder-content h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-  color: var(--text);
-}
-
-.founder-content p {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .founder-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .founder-image img {
-    margin-inline: auto;
-  }
-}
-.logo img{
-  height: 40px;
-  width: 40px;
-}
-.write p{
-  text-decoration: none;
-}
-:root{
-  --brand:#5b8def;
-  --brand-dark:#3b6fd6;
-  --text:#0f172a;
-  --muted:#64748b;
-  --bg:#f8fafc;
-  --card:#ffffff;
-  --accent:#22c55e;
-  --danger:#ef4444;
-  --warning:#f59e0b;
-  --radius:18px;
-  --shadow: 0 10px 30px rgba(2,6,23,.08);
-}
-
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
-}
-
-.container{
-  width:min(1100px, 92%);
-  margin-inline:auto;
-}
-
-.navbar{
-  position:sticky; top:0; z-index:50;
-  background:rgba(248,250,252,.8);
-  backdrop-filter: blur(8px);
-  border-bottom:1px solid #e2e8f0;
-}
-.navbar .inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-}
-.brand{
-  display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
-}
-.brand .logo{
-  width:38px; height:38px; display:grid; place-items:center; border-radius:12px; 
-  background:linear-gradient(135deg,var(--brand),#93c5fd);
-  color:white; font-weight:900; box-shadow:var(--shadow);
-}
-.nav-links{display:flex; gap:18px; align-items:center;}
-.nav-links a{
-  text-decoration:none; color:var(--text); font-weight:600; padding:10px 14px; border-radius:12px;
-}
-.nav-links a.cta{
-  background:var(--brand); color:white; box-shadow:var(--shadow);
-}
-.nav-links a:hover{background:#e2e8f0}
-
-.hero{
-  display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
-  padding:56px 0 24px;
-}
-.hero h1{
-  font-size:clamp(28px, 3.5vw, 54px);
-  line-height:1.1; margin:0 0 12px;
-}
-.hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
-.hero .card{
-  background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
-}
-
-.grid-3{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
-}
-.card{
-  background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
-}
-
-.section{padding:40px 0}
-.section h2{font-size:28px; margin:0 0 14px}
-.muted{color:var(--muted)}
-
-.list{
-  display:grid; gap:10px;
-}
-.badge{
-  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
-  background:#e2e8f0; color:#0f172a; font-weight:700; letter-spacing:.3px;
-}
-
-.footer{
-  margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0; color:var(--muted);
-}
-
-.hero-illustration{
-  border-radius:var(--radius);
-  height:100%;
-  min-height:260px;
-  background: radial-gradient(1200px 300px at -10% -40%, #c7d2fe 0, transparent 60%),
-              radial-gradient(600px 240px at 80% 0%, #bfdbfe 0, transparent 60%),
-              linear-gradient(135deg, #f0f9ff, #ffffff 60%);
-  box-shadow:var(--shadow);
-  border:1px solid #e2e8f0;
-  display:grid; place-items:center;
-}
-.hero-illustration .ring{
-  width:160px; height:160px; border-radius:999px;
-  border:14px solid rgba(59,112,214,.15);
-  display:grid; place-items:center;
-  animation: spin 18s linear infinite;
-}
-.hero-illustration .dot{
-  width:18px; height:18px; border-radius:999px; background:var(--brand);
-  box-shadow:0 0 0 10px rgba(91,141,239,.12), 0 0 0 22px rgba(91,141,239,.08);
-}
-
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.btn{
-  border:0; padding:12px 16px; border-radius:12px; font-weight:700;
-  background:var(--brand); color:white; cursor:pointer; box-shadow:var(--shadow);
-}
-.btn.secondary{background:#e2e8f0; color:#0f172a}
-.btn.danger{background:var(--danger)}
-.btn.warning{background:var(--warning)}
-.btn:disabled{opacity:.6; cursor:not-allowed}
-
-.table{
-  width:100%; border-collapse:separate; border-spacing:0 10px;
-}
-.table thead th{font-size:12px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted)}
-.table tbody tr{
-  background:var(--card); box-shadow:var(--shadow);
-}
-.table td, .table th{padding:12px 14px}
-.table tbody tr td:first-child, .table thead th:first-child{border-top-left-radius:12px; border-bottom-left-radius:12px}
-.table tbody tr td:last-child, .table thead th:last-child{border-top-right-radius:12px; border-bottom-right-radius:12px}
-
-.input, select, .date{
-  width:100%; padding:12px 14px; border-radius:12px; border:1px solid #e2e8f0; background:white;
-}
-
-.kpis{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
-}
-.kpi{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
-.kpi .value{font-size:24px; font-weight:800}
-
-.timer{
-  height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden;
-}
-.timer .bar{height:100%; width:100%; background:var(--accent); transition:width .3s linear}
-
-.notice{
-  border-left:4px solid var(--brand);
-  background:#eff6ff; color:#0c4a6e;
-  padding:12px 14px; border-radius:12px; margin:14px 0;
-}
-
-/* ==============================
-   RESPONSIVE DESIGN
-   ============================== */
-@media (max-width: 920px){
-  .hero{grid-template-columns:1fr; padding-top:32px; text-align:center;}
-  .hero-illustration{order:-1;}
-  .grid-3{grid-template-columns:1fr 1fr}
-  .kpis{grid-template-columns:1fr 1fr}
-}
-
-@media (max-width: 600px){
-  .navbar .inner{flex-direction:column; align-items:flex-start; gap:10px}
-  .nav-links{flex-direction:column; width:100%; display:none}
-  .nav-links a{width:100%; text-align:left}
-
-  .grid-3{grid-template-columns:1fr}
-  .kpis{grid-template-columns:1fr}
-  .hero h1{font-size:22px}
-  .hero p{font-size:16px}
-  .logo img{height:32px; width:32px}
-  
-  .table{display:block; overflow-x:auto; white-space:nowrap}
-}
-
-/* Founder Section */
-.founder-section {
-  padding: 40px 0;
-}
-.founder-card {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-  align-items: center;
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
-}
-.founder-image img {
-  width: 100%;
-  max-width: 250px;
-  border-radius: var(--radius);
-  object-fit: cover;
-  box-shadow: var(--shadow);
-}
-.founder-content h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-  color: var(--text);
-}
-.founder-content p {
-  color: var(--muted);
-  line-height: 1.6;
-}
-@media (max-width: 768px) {
-  .founder-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .founder-image img {
-    margin-inline: auto;
-    max-width: 180px;
-  }
-}
-
-.logo img{height:40px; width:40px;}
-.write p{text-decoration:none;}
-
-/* Hamburger styles */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-}
-.hamburger span {
-  height: 3px;
-  width: 100%;
-  background: var(--text);
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-/* Show nav when active */
-.nav-links.active {
-  display: flex !important;
-}
-
-/* Mobile view */
-@media (max-width: 600px) {
-  .hamburger { display: flex; }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: var(--card);
-    padding: 10px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
-  .nav-links a {
-    padding: 12px;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-}
-
   </style>
 </head>
 <body>
@@ -534,8 +217,6 @@ body{
       </a>
       <nav class="nav-links">
         <a href="index.html">Home</a>
-        <!-- <a href="attendance.html">Attendance</a> -->
-        <!-- <a href="quiz.html" class="cta">Quiz</a> -->
       </nav>
     </div>
   </header>
@@ -554,16 +235,27 @@ body{
   <main class="container" style="display:none" id="quizMain">
     <section class="section">
       <div class="badge"> FAMILY OF GRACE MONTHLY BIBLE QUIZ • ESTHER</div>
-      <h1>Answer 21 questions in 600 seconds</h1>
-      <p class="muted">Questions are randomly drawn from the Book of ESTHER. NOTE:Submit the screenshot of your score!</p>
+      <h1>Answer 21 questions in 900 seconds</h1>
+      <p class="muted" style="color: red;">Questions are randomly drawn from the Book of ESTHER. <br> NOTE: Submit a screenshot of your score and your reflection questions answers!</p>
 
       <div class="card" style="display:grid; gap:14px">
         <div class="timer"><div id="bar" class="bar"></div></div>
         <div style="display:flex; gap:10px; align-items:center; justify-content:space-between">
-          <div><strong>Time Left: <span id="timeLeft">600</span>s</strong></div>
+          <div><strong>Time Left: <span id="timeLeft">900</span>s</strong></div>
           <div class="muted">Score: <span id="scoreNow">0</span>/21</div>
         </div>
-        <form id="quizForm" class="list"></form>
+
+        <!-- Multiple-choice quiz form -->
+        <form id="quizForm" class="list" autocomplete="off"></form>
+
+        <!-- Reflection / short-answer section (separate and clearly below MCQs) -->
+        <div class="card small" id="reflectionCard" aria-labelledby="reflectionTitle">
+          <div id="reflectionTitle" class="section-title" style="color: red;">Reflection & Answers (please type in the boxes)</div>
+          <div class="reflection" id="reflectionList">
+            <!-- Short-answer fields are injected here -->
+          </div>
+        </div>
+
         <div style="display:flex; gap:10px">
           <button id="submitBtn" class="btn">Submit Answers</button>
           <button id="retryBtn" class="btn secondary" type="button"></button>
@@ -575,7 +267,7 @@ body{
     <section class="section">
       <h2>Participants Results</h2>
       <div class="card" style="overflow:auto">
-        <table class="table">
+        <table class="table" id="resultsTable">
           <thead>
             <tr>
               <th>Pos</th>
@@ -584,6 +276,7 @@ body{
               <th>Score</th>
               <th>Time Used (s)</th>
               <th>Date</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody id="resultsBody"></tbody>
@@ -608,34 +301,34 @@ const VALID_CODES = [
   "FG116","FG117","FG118","FG119","FG120"
 ];
 
-// === Quiz Questions ===
+// === Quiz Questions (multiple-choice) ===
 const BANK = [
-  {q:" How long did King Ahasuerus display the riches of his glorious kingdom and the honor of his excellent majesty? ", options:["90 days","120 days ","150 days"," 180 days"], a:3},
-  {q:"What were the colors of the curtains in the court of the garden of the king's palace?  ", options:["White, blue, and purple ","White, green, and blue"," Purple, red, and gold","Blue, white, and scarlet"], a:1},
-  {q:"What material were the couches made of in the king's garden court? ", options:["Silver and bronze ","Gold and silver","Bronze and iron","Gold and bronze"], a:1},
-  {q:" On which day of the feast did King Ahasuerus command the seven eunuchs to bring Queen Vashti before him?  ", options:[" The fifth day"," The sixth day","The seventh day","The final day "], a:2},
-  {q:" Who was NOT among the seven princes of Persia and Media who saw the king's face? ", options:["Carshena"," Marsena "," Haman","Memucan"], a:2},
-  {q:"According to Memucan, what would happen if Vashti's disobedience became known to all women? ", options:[" They would mock their husbands","They would despise their husbands in their eyes"," They would rebel against the king","They would refuse to obey the law"], a:1},
-  {q:"What did the royal decree establish about every man in his household? ", options:["He should be feared and honored ","He should rule and be obeyed","He should bear rule in his own house","He should be master over his wife "], a:2},
-  {q:"  Who was Mordecai's great-grandfather? ", options:["Shimei","Kish"," Jair ","Benjamin"], a:2},
-  {q:"What was Esther's Hebrew name? ", options:[" Hadassah","Hannah"," Havilah","Hephzibah"], a:0},
-  {q:"How many months was the purification process for the women before going to the king?  ", options:["Six months","Nine months","Twelve months ","Eighteen months"], a:2},
-  {q:"What were the two substances used in the purification process for the women?", options:["Perfume and sweet odors ","Oil of myrrh and sweet odors","Frankincense and myrrh "," Oil of roses and incense"], a:1},
-  {q:"  In which month was Esther taken to King Ahasuerus in his royal house?  ", options:["Nisan ","Sivan","Tebeth","Adar"], a:2},
-  {q:" What were the names of the two eunuchs who sought to lay hands on King Ahasuerus? ", options:["Bigtha and Teresh "," Bigthan and Teresh"," Harbona and Bigtha", "Mehuman and Biztha"], a:1},
-  {q:" What specific instruction did Mordecai give Esther that she faithfully obeyed even after becoming queen?", options:["Not to reveal her people or kindred","To pray daily in the palace","To maintain Jewish dietary laws","To send him daily reports"], a:1},
-  {q:"Who was Haman's father?  ", options:["Hammedatha the Agagite","Hammedatha the Amalekite","Hamor the Agagite","Harbona the Agagite"], a:0},
-  {q:"Why did Mordecai refuse to bow down to Haman?  ", options:[" He despised Haman personally ","The king's servants told him not to ","The text doesn't explicitly state why, but it's implied to be religious/ethnic reasons ","He was higher in rank than Haman "], a:2},
-  {q:" In which month did Haman cast Pur (the lot) to determine when to destroy the Jews?  ", options:[" The first month, Nisan "," The seventh month, Tishri ","The tenth month, Tebeth","The twelfth month, Adar "], a:0},
-  {q:" How much silver did Haman promise to pay into the king's treasuries?   ", options:[" 5,000 talents","10,000 talents","50,000 talents","100,000 talents"], a:1},
-  {q:"What did King Ahasuerus give to Haman along with permission to destroy the Jews? ", options:["His sword","His crown","His ring"," His scepter "], a:2},
-  {q:"On which day of the twelfth month were the Jews to be destroyed according to the decree?   ", options:[" The tenth day","The thirteenth day","The fourteenth day "," The fifteenth day"], a:1},
-  {q:"What were the king and Haman doing when the city of Shushan was perplexed?  ", options:["They sat down to drink","They sat down to eat ","They celebrated with music","They discussed battle plans"], a:1},
+  { q: "For how many days did King Ahasuerus show the riches of his glorious kingdom?", options: ["7 days", "100 days", "180 days", "365 days"], a: 2 },
+  { q: "On what colors were the cords of fine linen hung in the palace garden?", options: ["Scarlet, yellow, and black", "White, green, and gold", "White, blue, and purple", "Blue, silver, and crimson"], a: 2 },
+  { q: "The beds (or couches) were of what metals?", options: ["Bronze and iron", "Gold and silver", "Silver and bronze", "Gold and bronze"], a: 1 },
+  { q: "On what day of the feast did the king command Queen Vashti to be brought before him?", options: ["The first day", "The third day", "The seventh day", "The final day of the 180-day feast"], a: 2 },
+  { q: "Which of these was NOT one of the seven princes of Persia and Media?", options: ["Haman", "Carshena", "Memucan", "Marsena"], a: 0 },
+  { q: "According to Memucan, what would all the women of the empire do once they heard of the queen's deed?", options: ["Honor their husbands more", "Refuse to come when called", "Despise their husbands", "Demand their own feasts"], a: 2 },
+  { q: "What was the final part of the king's decree regarding every man?", options: ["That he must serve in the king's army", "That he should be the ruler in his own house", "That he must pay a tax to the crown", "That he should speak only the language of his own people"], a: 1 },
+  { q: "Who was Mordecai's father?", options: ["Kish", "Jair", "Shimei", "Abihail"], a: 1 },
+  { q: "What was Esther's Hebrew name?", options: ["Miriam", "Deborah", "Hadassah", "Rachel"], a: 2 },
+  { q: "For how long did the purification process for the women last?", options: ["40 days", "6 months", "Twelve months", "3 months"], a: 2 },
+  { q: "With what was a woman purified before she went in to the king?", options: ["Water and hyssop", "Oil of myrrh and sweet odors", "Wine and spices", "Perfumed soaps and lotions"], a: 1 },
+  { q: "In what month did Esther go in to the king?", options: ["The month of Nisan", "The month of Sivan", "The month of Tebeth", "The month of Adar"], a: 2 },
+  { q: "Who were the two chamberlains that Mordecai discovered plotting against the king?", options: ["Hegai and Shaashgaz", "Bigthan and Teresh", "Carshena and Shethar", "Meres and Marsena"], a: 1 },
+  { q: "What had Mordecai charged Esther not to do?", options: ["Not to eat the king's food", "Not to bow to Haman", "Not to reveal her people or kindred", "Not to speak Hebrew in the palace"], a: 2 },
+  { q: "Who was Haman's father?", options: ["Hammedatha", "Agag", "Memucan", "Hathach"], a: 0 },
+  { q: "Why did Mordecai refuse to bow to Haman?", options: ["Because Haman had insulted him", "Because he was a Jew", "Because the king had forbidden it", "Because he was of higher royal rank"], a: 1 },
+  { q: "In what month did Haman cast the lot (Pur) to determine the date for the Jews' destruction?", options: ["The first month, Nisan", "The third month, Sivan", "The twelfth month, Adar", "The seventh month, Tishri"], a: 0 },
+  { q: "How much silver did Haman offer to pay into the king's treasury for the destruction of the Jews?", options: ["1,000 talents of silver", "10,000 talents of silver", "100 pieces of silver", "He offered a percentage of the plunder"], a: 1 },
+  { q: "What did the king give Haman to seal the decree?", options: ["His royal scepter", "A sealed letter", "The king's signet ring", "A crown of gold"], a: 2 },
+  { q: "On what day of the month of Adar was the decree to be carried out?", options: ["The first day", "The thirteenth day", "The fourteenth day", "The tenth day"], a: 1 },
+  { q: "⁠what prompted the disobedience of the queen", options: ["Drunk", "angry", "pride", "None of the above"], a: 2 }
 ];
 
 const TOTAL = 21;
 let picked = [];
-let timer = 600;
+let timer = 900;
 let intervalId = null;
 let currentPlayer = null;
 let quizStartTime = null;
@@ -648,6 +341,17 @@ const bar = document.getElementById('bar');
 const result = document.getElementById('result');
 const scoreNow = document.getElementById('scoreNow');
 const resultsBody = document.getElementById('resultsBody');
+
+// Reflection / short-answer questions (these are separate from the multiple-choice bank)
+const REFLECTION_QUESTIONS = [
+  "1. What was the essence of the king chamberlain?",
+  "2. Do you think the decision (regarding Vashti) was favourable or a betrayal?",
+  "3. The text states that after signing the genocidal decree, the king and Haman 'sat down to drink.' What does this specific action (or inaction) reveal about their characters and their understanding of royal power versus moral responsibility?",
+  "4. Mordecai instructs Esther to conceal her Jewish identity, which ultimately allows her to become queen. Analyze the ethical tension between this strategic deception and the potential risk of assimilation or loss of identity. Was this a necessary act of wisdom for a greater good, or a compromise of principle?",
+  "5. Queen Vashti's refusal to appear is a pivotal act of defiance. Was her primary motivation more likely a stand for personal dignity against objectification, a calculated political challenge, or an adherence to a different cultural or personal code? Justify your reasoning.",
+  "6. Memucan frames his advice about deposing Vashti as a necessity to prevent social chaos and the contempt of husbands across the empire. Was his argument a genuine concern for social order, or a pretext for reinforcing patriarchal authority and controlling female agency? Explain.",
+  "7. Haman's rage toward Mordecai is described as personal, but his response is to plot genocide against an entire people. What does this escalation from a personal insult to a collective punishment reveal about the nature of prejudice and political power in the story?"
+];
 
 // Local storage key
 const STORAGE_KEY = "fg_quiz_results";
@@ -670,6 +374,7 @@ function pickQuestions(){
 function renderQuiz(){
   picked = pickQuestions();
   form.innerHTML = "";
+  // Render multiple-choice questions
   picked.forEach((item,idx)=>{
     const name="q"+idx;
     const block=document.createElement("div");
@@ -689,6 +394,19 @@ function renderQuiz(){
     block.appendChild(list);
     form.appendChild(block);
   });
+
+  // Render the reflection / short-answer fields (separate and below the MCQs)
+  const reflectionList = document.getElementById('reflectionList');
+  reflectionList.innerHTML = "";
+  REFLECTION_QUESTIONS.forEach((q, i) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+      <label style="font-weight:700; display:block; margin-bottom:6px;">${q}</label>
+      <textarea name="sa${i+1}" id="sa${i+1}" class="sa" rows="3" placeholder="Type your answer here..."></textarea>
+    `;
+    reflectionList.appendChild(wrapper);
+  });
+
   scoreNow.textContent="0";
   result.style.display="none";
   submitBtn.disabled=false;
@@ -696,14 +414,16 @@ function renderQuiz(){
 
 function startTimer(){
   clearInterval(intervalId);
-  timer=600;
+  timer=900;
   timeLeft.textContent=timer;
   bar.style.width="100%";
   quizStartTime = Date.now();
   intervalId=setInterval(()=>{
     timer--;
     timeLeft.textContent=timer;
-    bar.style.width=(timer/600*600)+"%";
+    // compute percentage correctly
+    const pct = Math.max(0, (timer / 900) * 100);
+    bar.style.width = pct + "%";
     if(timer<=0){
       clearInterval(intervalId);
       grade(true);
@@ -735,6 +455,13 @@ function grade(auto=false){
     });
     if(chosen===correct)score++;
   });
+
+  // collect short answers
+  const shortAnswers = REFLECTION_QUESTIONS.map((_,i)=>{
+    const el = document.getElementById(`sa${i+1}`);
+    return el ? el.value.trim() : "";
+  });
+
   scoreNow.textContent=String(score);
   submitBtn.disabled=true;
   const msg=auto?"Time is up!":"Submitted.";
@@ -743,7 +470,7 @@ function grade(auto=false){
 
   const timeUsed = Math.floor((Date.now()-quizStartTime)/1000);
 
-  // Save result
+  // Save result with short answers
   const raw=localStorage.getItem(STORAGE_KEY);
   const data=raw?JSON.parse(raw):[];
   data.push({
@@ -751,7 +478,8 @@ function grade(auto=false){
     code: currentPlayer.code,
     score,
     time: timeUsed,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString(),
+    shortAnswers // array of typed responses
   });
   localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
   loadResults();
@@ -770,13 +498,34 @@ function loadResults(){
     const tr=document.createElement("tr");
     tr.innerHTML=`
       <td>${i+1}</td>
-      <td>${rec.name}</td>
-      <td>${rec.code}</td>
+      <td>${escapeHtml(rec.name)}</td>
+      <td>${escapeHtml(rec.code)}</td>
       <td>${rec.score}</td>
       <td>${rec.time}</td>
       <td>${rec.date}</td>
+      <td><button class="btn secondary view-details" data-index="${i}">View</button></td>
     `;
     resultsBody.appendChild(tr);
+  });
+
+  // wire up view buttons
+  const viewBtns = document.querySelectorAll('.view-details');
+  viewBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const idx = parseInt(btn.getAttribute('data-index'));
+      const rec = data[idx];
+      const sa = (rec && rec.shortAnswers) ? rec.shortAnswers : [];
+      let html = `<strong>${escapeHtml(rec.name)} (${escapeHtml(rec.code)})</strong><br><em>Score:</em> ${rec.score} &nbsp; <em>Time:</em> ${rec.time}s<br><hr>`;
+      sa.forEach((ans, i) => {
+        html += `<strong>Q${i+1}.</strong> ${escapeHtml(REFLECTION_QUESTIONS[i])}<br>${escapeHtml(ans || "(no answer)")}<br><br>`;
+      });
+      // simple modal using window.open-like small popup
+      const w = window.open("", "_blank", "width=700,height=500,scrollbars=yes");
+      w.document.title = "Participant details";
+      w.document.body.style.fontFamily = "system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, Helvetica, sans-serif";
+      w.document.body.style.padding = "18px";
+      w.document.body.innerHTML = html;
+    });
   });
 }
 
@@ -784,12 +533,18 @@ function exportCSV(){
   const raw=localStorage.getItem(STORAGE_KEY);
   if(!raw){alert("No records");return;}
   const data=JSON.parse(raw);
-  const rows=[["Pos","Name","Code","Score","Time Used","Date"]];
-  data.sort((a,b)=> b.score-a.score || a.time-b.time)
-      .forEach((rec,i)=>{
-        rows.push([i+1,rec.name,rec.code,rec.score,rec.time,rec.date]);
-      });
-  const csv=rows.map(r=>r.join(",")).join("\n");
+  // headers include short answer columns
+  const headers = ["Pos","Name","Code","Score","Time Used","Date"].concat(REFLECTION_QUESTIONS.map((q,i)=>`SA${i+1}`));
+  const rows=[headers];
+  data.sort((a,b)=> {
+    if(b.score !== a.score) return b.score-a.score;
+    return a.time - b.time;
+  }).forEach((rec,i)=>{
+    const base = [i+1, rec.name, rec.code, rec.score, rec.time, rec.date];
+    const sas = (rec.shortAnswers || []).map(s => (""+s).replace(/"/g,'""')); // escape quotes
+    rows.push(base.concat(sas));
+  });
+  const csv = rows.map(r => r.map(cell => `"${(cell===undefined||cell===null)?"":cell}"`).join(",")).join("\n");
   const blob=new Blob([csv],{type:"text/csv"});
   const a=document.createElement("a");
   a.href=URL.createObjectURL(blob);
@@ -799,9 +554,20 @@ function exportCSV(){
   a.remove();
 }
 
+// Escape simple HTML for display
+function escapeHtml(text){
+  if(text === undefined || text === null) return "";
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 // === Events ===
-submitBtn.addEventListener("click",e=>{e.preventDefault();grade(false);});
-retryBtn.addEventListener("click",()=>{renderQuiz();startTimer();});
+submitBtn.addEventListener("click",e=>{e.preventDefault(); grade(false);});
+retryBtn.addEventListener("click",()=>{ renderQuiz(); startTimer(); });
 document.getElementById("exportResultsBtn").addEventListener("click",exportCSV);
 
 // === Login Overlay ===
