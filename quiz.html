@@ -235,9 +235,9 @@ body{
 
   <main class="container" style="display:none" id="quizMain">
     <section class="section">
-      <div class="badge"> FAMILY OF GRACE MONTHLY BIBLE QUIZ • ESTHER</div>
+      <div class="badge"> FAMILY OF GRACE MONTHLY BIBLE QUIZ • RUTH</div>
       <h1>Answer 21 questions in 900 seconds</h1>
-      <p class="muted" style="color: red;">Questions are randomly drawn from the Book of ESTHER. <br> NOTE: Submit a screenshot of your score and your reflection questions answers!</p>
+      <p class="muted" style="color: red;">Questions are randomly drawn from the Book of RUTH. <br> NOTE: Submit a screenshot of your score and your reflection questions answers!</p>
 
       <div class="card" style="display:grid; gap:14px">
         <div class="timer"><div id="bar" class="bar"></div></div>
@@ -304,27 +304,32 @@ const VALID_CODES = [
 
 // === Quiz Questions (multiple-choice) ===
 const BANK = [
-  { q: "For how many days did King Ahasuerus show the riches of his glorious kingdom?", options: ["7 days", "100 days", "180 days", "365 days"], a: 2 },
-  { q: "On what colors were the cords of fine linen hung in the palace garden?", options: ["Scarlet, yellow, and black", "White, green, and gold", "White, blue, and purple", "Blue, silver, and crimson"], a: 2 },
-  { q: "The beds (or couches) were of what metals?", options: ["Bronze and iron", "Gold and silver", "Silver and bronze", "Gold and bronze"], a: 1 },
-  { q: "On what day of the feast did the king command Queen Vashti to be brought before him?", options: ["The first day", "The third day", "The seventh day", "The final day of the 180-day feast"], a: 2 },
-  { q: "Which of these was NOT one of the seven princes of Persia and Media?", options: ["Haman", "Carshena", "Memucan", "Marsena"], a: 0 },
-  { q: "According to Memucan, what would all the women of the empire do once they heard of the queen's deed?", options: ["Honor their husbands more", "Refuse to come when called", "Despise their husbands", "Demand their own feasts"], a: 2 },
-  { q: "What was the final part of the king's decree regarding every man?", options: ["That he must serve in the king's army", "That he should be the ruler in his own house", "That he must pay a tax to the crown", "That he should speak only the language of his own people"], a: 1 },
-  { q: "Who was Mordecai's father?", options: ["Kish", "Jair", "Shimei", "Abihail"], a: 1 },
-  { q: "What was Esther's Hebrew name?", options: ["Miriam", "Deborah", "Hadassah", "Rachel"], a: 2 },
-  { q: "For how long did the purification process for the women last?", options: ["40 days", "6 months", "Twelve months", "3 months"], a: 2 },
-  { q: "With what was a woman purified before she went in to the king?", options: ["Water and hyssop", "Oil of myrrh and sweet odors", "Wine and spices", "Perfumed soaps and lotions"], a: 1 },
-  { q: "In what month did Esther go in to the king?", options: ["The month of Nisan", "The month of Sivan", "The month of Tebeth", "The month of Adar"], a: 2 },
-  { q: "Who were the two chamberlains that Mordecai discovered plotting against the king?", options: ["Hegai and Shaashgaz", "Bigthan and Teresh", "Carshena and Shethar", "Meres and Marsena"], a: 1 },
-  { q: "What had Mordecai charged Esther not to do?", options: ["Not to eat the king's food", "Not to bow to Haman", "Not to reveal her people or kindred", "Not to speak Hebrew in the palace"], a: 2 },
-  { q: "Who was Haman's father?", options: ["Hammedatha", "Agag", "Memucan", "Hathach"], a: 0 },
-  { q: "Why did Mordecai refuse to bow to Haman?", options: ["Because Haman had insulted him", "Because he was a Jew", "Because the king had forbidden it", "Because he was of higher royal rank"], a: 1 },
-  { q: "In what month did Haman cast the lot (Pur) to determine the date for the Jews' destruction?", options: ["The first month, Nisan", "The third month, Sivan", "The twelfth month, Adar", "The seventh month, Tishri"], a: 0 },
-  { q: "How much silver did Haman offer to pay into the king's treasury for the destruction of the Jews?", options: ["1,000 talents of silver", "10,000 talents of silver", "100 pieces of silver", "He offered a percentage of the plunder"], a: 1 },
-  { q: "What did the king give Haman to seal the decree?", options: ["His royal scepter", "A sealed letter", "The king's signet ring", "A crown of gold"], a: 2 },
-  { q: "On what day of the month of Adar was the decree to be carried out?", options: ["The first day", "The thirteenth day", "The fourteenth day", "The tenth day"], a: 1 },
-  { q: "⁠what prompted the disobedience of the queen", options: ["Drunk", "angry", "pride", "None of the above"], a: 2 }
+  // RUTH CHAPTER 1
+  { q: "What was the name of Elimelech's hometown in Judah where he lived before going to Moab?", options: ["Bethlehem-judah","Jerusalem","Hebron","Ramah"], a: 0 },
+  { q: "How long did Naomi's family dwell in the country of Moab before her sons died?", options: ["Five years","Seven years","About ten years","Twelve years"], a: 2 },
+  { q: "What were the names of Elimelech and Naomi's two sons?", options: ["Mahlon and Chilion","Mahlon and Boaz","Chilion and Obed","Mahlon and Obed"], a: 0 },
+  { q: "Which daughter-in-law did Naomi kiss before she returned to her people?", options: ["Ruth","Orpah","Both Ruth and Orpah","Neither of them"], a: 1 },
+  { q: "What specific reason did Naomi give to discourage her daughters-in-law from following her?", options: ["She had no more sons in her womb to be their husbands","She was too poor to support them","They would be outcasts in Israel","The journey was too dangerous"], a: 0 },
+  { q: "What name did Naomi ask to be called when she returned to Bethlehem, and what does it mean?", options: ["Naomi, meaning pleasant","Mara, meaning bitter","Ruth, meaning compassionate","Orpah, meaning back of neck"], a: 1 },
+  { q: "At what time of year did Naomi and Ruth arrive in Bethlehem?", options: ["At the beginning of wheat harvest","At the beginning of barley harvest","At the end of harvest season","During the grape harvest"], a: 1 },
+
+  // RUTH CHAPTER 2
+  { q: "How is Boaz described in relation to Elimelech?", options: ["A distant cousin","A brother","A mighty man of wealth and a kinsman of Elimelech's","Elimelech's nephew"], a: 2 },
+  { q: "What did Ruth ask Naomi for permission to do?", options: ["Go to the marketplace","Go to the field and glean ears of corn after someone in whose sight she would find grace","Go to the well to draw water","Go to the city gate"], a: 1 },
+  { q: "What greeting did Boaz give to his reapers when he came from Bethlehem?", options: ["\"Peace be with you\"","\"The Lord bless you\"","\"Grace and peace\"","\"God be with you\""], a: 1 },
+  { q: "What did Boaz command his young men NOT to do to Ruth?", options: ["Not to speak to her","Not to rebuke her","Not to touch her","Not to allow her to glean"], a: 2 },
+  { q: "What specific instruction did Boaz give his young men regarding Ruth's gleaning?", options: ["To give her the best grain","To let fall some handfuls of purpose for her","To help her gather grain","To share their lunch with her"], a: 1 },
+  { q: "How much barley did Ruth glean and beat out that day?", options: ["Half an ephah","About an ephah","Two ephahs","Three ephahs"], a: 1 },
+  { q: "What did Ruth give to Naomi after she had eaten and was sufficed?", options: ["Money from selling grain","Bread from Boaz","What she had reserved after she was sufficed","A gift from the reapers"], a: 2 },
+
+  // RUTH CHAPTER 3
+  { q: "What did Naomi tell Ruth that Boaz would be doing that night?", options: ["Threshing wheat","Winnowing barley in the threshing floor","Counting his grain","Celebrating the harvest"], a: 1 },
+  { q: "What did Naomi instruct Ruth to do before going to the threshing floor?", options: ["Take food and drink","Wash herself, anoint herself, and put on her raiment","Tell Boaz she was coming","Bring offerings to the Lord"], a: 1 },
+  { q: "According to Naomi's instructions, when should Ruth make herself known to Boaz?", options: ["As soon as she arrived at the threshing floor","When he was eating","After he had finished eating and drinking","In the morning"], a: 2 },
+  { q: "Where specifically did Naomi tell Ruth to lie down?", options: ["At Boaz's head","At Boaz's feet","Near the door","By the grain pile"], a: 1 },
+  { q: "At what time did Boaz discover Ruth lying at his feet?", options: ["At sunset","At midnight","At dawn","In the early evening"], a: 1 },
+  { q: "What reason did Boaz give for blessing Ruth for coming to him?", options: ["Because she showed kindness in not going after young men, whether poor or rich","Because she was faithful to Naomi","Because she worked hard in the fields","Because she was humble and obedient"], a: 0 },
+  { q: "How much barley did Boaz measure out for Ruth before she left in the morning?", options: ["Three measures of barley","Six measures of barley","Ten measures of barley","Twelve measures of barley"], a: 1 }
 ];
 
 const TOTAL = 21;
@@ -344,15 +349,15 @@ const scoreNow = document.getElementById('scoreNow');
 const resultsBody = document.getElementById('resultsBody');
 
 // Reflection / short-answer questions (these are separate from the multiple-choice bank)
-const REFLECTION_QUESTIONS = [
-  "1. What was the essence of the king chamberlain decision?",
-  "2. Do you think the decision (regarding Vashti) was favourable or a betrayal?",
-  "3. The text states that after signing the genocidal decree, the king and Haman 'sat down to drink.' What does this specific action (or inaction) reveal about their characters and their understanding of royal power versus moral responsibility?",
-  "4. Mordecai instructs Esther to conceal her Jewish identity, which ultimately allows her to become queen. Analyze the ethical tension between this strategic deception and the potential risk of assimilation or loss of identity. Was this a necessary act of wisdom for a greater good, or a compromise of principle?",
-  "5. Queen Vashti's refusal to appear is a pivotal act of defiance. Was her primary motivation more likely a stand for personal dignity against objectification, a calculated political challenge, or an adherence to a different cultural or personal code? Justify your reasoning.",
-  "6. Memucan frames his advice about deposing Vashti as a necessity to prevent social chaos and the contempt of husbands across the empire. Was his argument a genuine concern for social order, or a pretext for reinforcing patriarchal authority and controlling female agency? Explain.",
-  "7. Haman's rage toward Mordecai is described as personal, but his response is to plot genocide against an entire people. What does this escalation from a personal insult to a collective punishment reveal about the nature of prejudice and political power in the story?"
-];
+// const REFLECTION_QUESTIONS = [
+//   "1. What was the essence of the king chamberlain decision?",
+//   "2. Do you think the decision (regarding Vashti) was favourable or a betrayal?",
+//   "3. The text states that after signing the genocidal decree, the king and Haman 'sat down to drink.' What does this specific action (or inaction) reveal about their characters and their understanding of royal power versus moral responsibility?",
+//   "4. Mordecai instructs Esther to conceal her Jewish identity, which ultimately allows her to become queen. Analyze the ethical tension between this strategic deception and the potential risk of assimilation or loss of identity. Was this a necessary act of wisdom for a greater good, or a compromise of principle?",
+//   "5. Queen Vashti's refusal to appear is a pivotal act of defiance. Was her primary motivation more likely a stand for personal dignity against objectification, a calculated political challenge, or an adherence to a different cultural or personal code? Justify your reasoning.",
+//   "6. Memucan frames his advice about deposing Vashti as a necessity to prevent social chaos and the contempt of husbands across the empire. Was his argument a genuine concern for social order, or a pretext for reinforcing patriarchal authority and controlling female agency? Explain.",
+//   "7. Haman's rage toward Mordecai is described as personal, but his response is to plot genocide against an entire people. What does this escalation from a personal insult to a collective punishment reveal about the nature of prejudice and political power in the story?"
+// ];
 
 // Local storage key
 const STORAGE_KEY = "fg_quiz_results";
