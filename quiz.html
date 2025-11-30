@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Family of Grace Quiz</title>
-    <link rel="icon" type="image/x-icon" href="./photo_2025-09-03_01-35-31-removebg-preview.png">
+  <link rel="icon" type="image/x-icon" href="./photo_2025-09-03_01-35-31-removebg-preview.png">
   <style>
     .overlay {
       position: fixed;
@@ -15,198 +15,113 @@
       justify-content: center;
       z-index: 1000;
     }
-    .overlay .card {
-      max-width: 400px;
-      width: 100%;
+    .overlay .card { max-width: 400px; width: 100%; }
+    .logo img{ height: 40px; width: 40px; }
+
+    :root{
+      --brand:#5b8def;
+      --brand-dark:#3b6fd6;
+      --text:#0f172a;
+      --muted:#64748b;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --accent:#22c55e;
+      --danger:#ef4444;
+      --warning:#f59e0b;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
     }
-    .logo img{
-      height: 40px;
-      width: 40px;
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
     }
 
-:root{
-  --brand:#5b8def;
-  --brand-dark:#3b6fd6;
-  --text:#0f172a;
-  --muted:#64748b;
-  --bg:#f8fafc;
-  --card:#ffffff;
-  --accent:#22c55e;
-  --danger:#ef4444;
-  --warning:#f59e0b;
-  --radius:18px;
-  --shadow: 0 10px 30px rgba(2,6,23,.08);
-}
+    .container{ width:min(1100px, 92%); margin-inline:auto; }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
-}
+    .navbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(248,250,252,.8);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid #e2e8f0;
+    }
+    .navbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
+    }
+    .brand .logo{
+      width:38px; height:38px; display:grid; place-items:center; border-radius:12px; 
+      background:linear-gradient(135deg,var(--brand),#93c5fd);
+      color:white; font-weight:900; box-shadow:var(--shadow);
+    }
+    .nav-links{display:flex; gap:18px; align-items:center;}
+    .nav-links a{
+      text-decoration:none; color:var(--text); font-weight:600; padding:10px 14px; border-radius:12px;
+    }
+    .nav-links a.cta{
+      background:var(--brand); color:white; box-shadow:var(--shadow);
+    }
+    .nav-links a:hover{background:#e2e8f0}
 
-.container{
-  width:min(1100px, 92%);
-  margin-inline:auto;
-}
+    .hero{
+      display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
+      padding:56px 0 24px;
+    }
+    .hero h1{
+      font-size:clamp(32px, 3.8vw, 54px);
+      line-height:1.1; margin:0 0 12px;
+    }
+    .hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
+    .hero .card{
+      background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+    }
 
-.navbar{
-  position:sticky; top:0; z-index:50;
-  background:rgba(248,250,252,.8);
-  backdrop-filter: blur(8px);
-  border-bottom:1px solid #e2e8f0;
-}
-.navbar .inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-}
-.brand{
-  display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
-}
-.brand .logo{
-  width:38px; height:38px; display:grid; place-items:center; border-radius:12px; 
-  background:linear-gradient(135deg,var(--brand),#93c5fd);
-  color:white; font-weight:900; box-shadow:var(--shadow);
-}
-.nav-links{display:flex; gap:18px; align-items:center;}
-.nav-links a{
-  text-decoration:none; color:var(--text); font-weight:600; padding:10px 14px; border-radius:12px;
-}
-.nav-links a.cta{
-  background:var(--brand); color:white; box-shadow:var(--shadow);
-}
-.nav-links a:hover{background:#e2e8f0}
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card{ background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
 
-.hero{
-  display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
-  padding:56px 0 24px;
-}
-.hero h1{
-  font-size:clamp(32px, 3.8vw, 54px);
-  line-height:1.1; margin:0 0 12px;
-}
-.hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
-.hero .card{
-  background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
-}
+    .section{padding:40px 0}
+    .section h2{font-size:28px; margin:0 0 14px}
+    .muted{color:var(--muted)}
 
-.grid-3{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
-}
-.card{
-  background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
-}
+    .list{ display:grid; gap:10px; }
+    .badge{
+      display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
+      background:#e2e8f0; color:#0f172a; font-weight:700; letter-spacing:.3px;
+    }
 
-.section{padding:40px 0}
-.section h2{font-size:28px; margin:0 0 14px}
-.muted{color:var(--muted)}
+    .footer{
+      margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0; color:var(--muted);
+    }
 
-.list{
-  display:grid; gap:10px;
-}
-.badge{
-  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
-  background:#e2e8f0; color:#0f172a; font-weight:700; letter-spacing:.3px;
-}
+    .timer{
+      height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden;
+    }
+    .timer .bar{height:100%; width:100%; background:var(--accent); transition:width .3s linear}
 
-.footer{
-  margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0; color:var(--muted);
-}
+    .btn{
+      border:0; padding:12px 16px; border-radius:12px; font-weight:700;
+      background:var(--brand); color:white; cursor:pointer; box-shadow:var(--shadow);
+    }
+    .btn.secondary{background:#e2e8f0; color:#0f172a}
+    .btn.danger{background:var(--danger)}
+    .btn.warning{background:var(--warning)}
+    .btn:disabled{opacity:.6; cursor:not-allowed}
 
-.hero-illustration{
-  border-radius:var(--radius);
-  height:100%;
-  min-height:260px;
-  background: radial-gradient(1200px 300px at -10% -40%, #c7d2fe 0, transparent 60%),
-              radial-gradient(600px 240px at 80% 0%, #bfdbfe 0, transparent 60%),
-              linear-gradient(135deg, #f0f9ff, #ffffff 60%);
-  box-shadow:var(--shadow);
-  border:1px solid #e2e8f0;
-  display:grid; place-items:center;
-}
-.hero-illustration .ring{
-  width:160px; height:160px; border-radius:999px;
-  border:14px solid rgba(59,112,214,.15);
-  display:grid; place-items:center;
-  animation: spin 18s linear infinite;
-}
-.hero-illustration .dot{
-  width:18px; height:18px; border-radius:999px; background:var(--brand);
-  box-shadow:0 0 0 10px rgba(91,141,239,.12), 0 0 0 22px rgba(91,141,239,.08);
-}
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr; padding-top:32px; text-align:center;}
+      .grid-3{grid-template-columns:1fr}
+    }
 
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.btn{
-  border:0; padding:12px 16px; border-radius:12px; font-weight:700;
-  background:var(--brand); color:white; cursor:pointer; box-shadow:var(--shadow);
-}
-.btn.secondary{background:#e2e8f0; color:#0f172a}
-.btn.danger{background:var(--danger)}
-.btn.warning{background:var(--warning)}
-.btn:disabled{opacity:.6; cursor:not-allowed}
-
-.table{
-  width:100%; border-collapse:separate; border-spacing:0 10px;
-}
-.table thead th{font-size:12px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted)}
-.table tbody tr{
-  background:var(--card); box-shadow:var(--shadow);
-}
-.table td, .table th{padding:12px 14px}
-.table tbody tr td:first-child, .table thead th:first-child{border-top-left-radius:12px; border-bottom-left-radius:12px}
-.table tbody tr td:last-child, .table thead th:last-child{border-top-right-radius:12px; border-bottom-right-radius:12px}
-
-.input, select, .date, textarea.sa {
-  width:100%; padding:12px 14px; border-radius:12px; border:1px solid #e2e8f0; background:white;
-  font-family:inherit;
-}
-
-.kpis{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
-}
-.kpi{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
-.kpi .value{font-size:24px; font-weight:800}
-
-.timer{
-  height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden;
-}
-.timer .bar{height:100%; width:100%; background:var(--accent); transition:width .3s linear}
-
-.notice{
-  border-left:4px solid var(--brand);
-  background:#eff6ff; color:#0c4a6e;
-  padding:12px 14px; border-radius:12px; margin:14px 0;
-}
-
-.card.small { padding:14px; }
-
-.reflection {
-  margin-top: 8px;
-  display: grid;
-  gap: 12px;
-}
-
-/* Keep short-answer section visually separated from MCQs */
-.reflection .section-title {
-  font-weight:800;
-  font-size:16px;
-  color:var(--brand-dark);
-  margin-bottom:4px;
-}
-
-/* small responsive */
-@media (max-width: 920px){
-  .hero{grid-template-columns:1fr; padding-top:32px; text-align:center;}
-  .grid-3{grid-template-columns:1fr}
-  .kpis{grid-template-columns:1fr 1fr}
-}
-
-@media (max-width: 520px){
-  .nav-links{display:none}
-}
+    @media (max-width: 520px){
+      .nav-links{display:none}
+    }
   </style>
 </head>
 <body>
@@ -214,7 +129,7 @@ body{
     <div class="container inner">
       <a class="brand" href="index.html">
         <div class="logo"><img src="./photo_2025-09-03_01-35-31-removebg-preview.png" alt=""></div>
-        <div>Family of Grace </div>
+        <div>Family of Grace</div>
       </a>
       <nav class="nav-links">
         <a href="index.html">Home</a>
@@ -235,9 +150,9 @@ body{
 
   <main class="container" style="display:none" id="quizMain">
     <section class="section">
-      <div class="badge"> FAMILY OF GRACE MONTHLY BIBLE QUIZ • RUTH</div>
+      <div class="badge">FAMILY OF GRACE MONTHLY BIBLE QUIZ • RUTH</div>
       <h1>Answer 21 questions in 900 seconds</h1>
-      <p class="muted" style="color: red;">Questions are randomly drawn from the Book of RUTH. <br> NOTE: Submit a screenshot of your score and your reflection questions answers!</p>
+      <p class="muted" style="color:red;">Questions are randomly drawn from the Book of RUTH.<br>NOTE: Submit a screenshot of your score</p>
 
       <div class="card" style="display:grid; gap:14px">
         <div class="timer"><div id="bar" class="bar"></div></div>
@@ -248,14 +163,6 @@ body{
 
         <!-- Multiple-choice quiz form -->
         <form id="quizForm" class="list" autocomplete="off"></form>
-
-        <!-- Reflection / short-answer section (separate and clearly below MCQs) -->
-        <div class="card small" id="reflectionCard" aria-labelledby="reflectionTitle">
-          <!-- <div id="reflectionTitle" class="section-title" style="color: red;">Reflection & Answers (please type in the boxes)</div> -->
-          <div class="reflection" id="reflectionList">
-            <!-- Short-answer fields are injected here -->
-          </div>
-        </div>
 
         <div style="display:flex; gap:10px">
           <button id="submitBtn" class="btn">Submit Answers</button>
@@ -277,7 +184,6 @@ body{
               <th>Score</th>
               <th>Time Used (s)</th>
               <th>Date</th>
-              <th>Details</th>
             </tr>
           </thead>
           <tbody id="resultsBody"></tbody>
@@ -302,9 +208,8 @@ const VALID_CODES = [
   "FG116","FG149","FG148","FG119","FG530"
 ];
 
-// === Quiz Questions (multiple-choice) ===
+// === Quiz Questions ===
 const BANK = [
-  // RUTH CHAPTER 1
   { q: "What was the name of Elimelech's hometown in Judah where he lived before going to Moab?", options: ["Bethlehem-judah","Jerusalem","Hebron","Ramah"], a: 0 },
   { q: "How long did Naomi's family dwell in the country of Moab before her sons died?", options: ["Five years","Seven years","About ten years","Twelve years"], a: 2 },
   { q: "What were the names of Elimelech and Naomi's two sons?", options: ["Mahlon and Chilion","Mahlon and Boaz","Chilion and Obed","Mahlon and Obed"], a: 0 },
@@ -312,8 +217,6 @@ const BANK = [
   { q: "What specific reason did Naomi give to discourage her daughters-in-law from following her?", options: ["She had no more sons in her womb to be their husbands","She was too poor to support them","They would be outcasts in Israel","The journey was too dangerous"], a: 0 },
   { q: "What name did Naomi ask to be called when she returned to Bethlehem, and what does it mean?", options: ["Naomi, meaning pleasant","Mara, meaning bitter","Ruth, meaning compassionate","Orpah, meaning back of neck"], a: 1 },
   { q: "At what time of year did Naomi and Ruth arrive in Bethlehem?", options: ["At the beginning of wheat harvest","At the beginning of barley harvest","At the end of harvest season","During the grape harvest"], a: 1 },
-
-  // RUTH CHAPTER 2
   { q: "How is Boaz described in relation to Elimelech?", options: ["A distant cousin","A brother","A mighty man of wealth and a kinsman of Elimelech's","Elimelech's nephew"], a: 2 },
   { q: "What did Ruth ask Naomi for permission to do?", options: ["Go to the marketplace","Go to the field and glean ears of corn after someone in whose sight she would find grace","Go to the well to draw water","Go to the city gate"], a: 1 },
   { q: "What greeting did Boaz give to his reapers when he came from Bethlehem?", options: ["\"Peace be with you\"","\"The Lord bless you\"","\"Grace and peace\"","\"God be with you\""], a: 1 },
@@ -321,8 +224,6 @@ const BANK = [
   { q: "What specific instruction did Boaz give his young men regarding Ruth's gleaning?", options: ["To give her the best grain","To let fall some handfuls of purpose for her","To help her gather grain","To share their lunch with her"], a: 1 },
   { q: "How much barley did Ruth glean and beat out that day?", options: ["Half an ephah","About an ephah","Two ephahs","Three ephahs"], a: 1 },
   { q: "What did Ruth give to Naomi after she had eaten and was sufficed?", options: ["Money from selling grain","Bread from Boaz","What she had reserved after she was sufficed","A gift from the reapers"], a: 2 },
-
-  // RUTH CHAPTER 3
   { q: "What did Naomi tell Ruth that Boaz would be doing that night?", options: ["Threshing wheat","Winnowing barley in the threshing floor","Counting his grain","Celebrating the harvest"], a: 1 },
   { q: "What did Naomi instruct Ruth to do before going to the threshing floor?", options: ["Take food and drink","Wash herself, anoint herself, and put on her raiment","Tell Boaz she was coming","Bring offerings to the Lord"], a: 1 },
   { q: "According to Naomi's instructions, when should Ruth make herself known to Boaz?", options: ["As soon as she arrived at the threshing floor","When he was eating","After he had finished eating and drinking","In the morning"], a: 2 },
@@ -348,39 +249,16 @@ const result = document.getElementById('result');
 const scoreNow = document.getElementById('scoreNow');
 const resultsBody = document.getElementById('resultsBody');
 
-// Reflection / short-answer questions (these are separate from the multiple-choice bank)
-// const REFLECTION_QUESTIONS = [
-//   "1. What was the essence of the king chamberlain decision?",
-//   "2. Do you think the decision (regarding Vashti) was favourable or a betrayal?",
-//   "3. The text states that after signing the genocidal decree, the king and Haman 'sat down to drink.' What does this specific action (or inaction) reveal about their characters and their understanding of royal power versus moral responsibility?",
-//   "4. Mordecai instructs Esther to conceal her Jewish identity, which ultimately allows her to become queen. Analyze the ethical tension between this strategic deception and the potential risk of assimilation or loss of identity. Was this a necessary act of wisdom for a greater good, or a compromise of principle?",
-//   "5. Queen Vashti's refusal to appear is a pivotal act of defiance. Was her primary motivation more likely a stand for personal dignity against objectification, a calculated political challenge, or an adherence to a different cultural or personal code? Justify your reasoning.",
-//   "6. Memucan frames his advice about deposing Vashti as a necessity to prevent social chaos and the contempt of husbands across the empire. Was his argument a genuine concern for social order, or a pretext for reinforcing patriarchal authority and controlling female agency? Explain.",
-//   "7. Haman's rage toward Mordecai is described as personal, but his response is to plot genocide against an entire people. What does this escalation from a personal insult to a collective punishment reveal about the nature of prejudice and political power in the story?"
-// ];
-
-// Local storage key
 const STORAGE_KEY = "fg_quiz_results";
 
-// === Shuffle helper ===
-function shuffle(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]]=[arr[j],arr[i]];
-  }
-  return arr;
-}
+// shuffle helper
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]];} return arr; }
 
-function pickQuestions(){
-  const ids = [...Array(BANK.length).keys()];
-  shuffle(ids);
-  return ids.slice(0,TOTAL).map(i=>BANK[i]);
-}
+function pickQuestions(){ const ids=[...Array(BANK.length).keys()]; shuffle(ids); return ids.slice(0,TOTAL).map(i=>BANK[i]); }
 
 function renderQuiz(){
   picked = pickQuestions();
   form.innerHTML = "";
-  // Render multiple-choice questions
   picked.forEach((item,idx)=>{
     const name="q"+idx;
     const block=document.createElement("div");
@@ -400,19 +278,6 @@ function renderQuiz(){
     block.appendChild(list);
     form.appendChild(block);
   });
-
-  // Render the reflection / short-answer fields (separate and below the MCQs)
-  const reflectionList = document.getElementById('reflectionList');
-  reflectionList.innerHTML = "";
-  REFLECTION_QUESTIONS.forEach((q, i) => {
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = `
-      <label style="font-weight:700; display:block; margin-bottom:6px;">${q}</label>
-      <textarea name="sa${i+1}" id="sa${i+1}" class="sa" rows="3" placeholder="Type your answer here..."></textarea>
-    `;
-    reflectionList.appendChild(wrapper);
-  });
-
   scoreNow.textContent="0";
   result.style.display="none";
   submitBtn.disabled=false;
@@ -427,13 +292,9 @@ function startTimer(){
   intervalId=setInterval(()=>{
     timer--;
     timeLeft.textContent=timer;
-    // compute percentage correctly
-    const pct = Math.max(0, (timer / 900) * 100);
-    bar.style.width = pct + "%";
-    if(timer<=0){
-      clearInterval(intervalId);
-      grade(true);
-    }
+    const pct = Math.max(0,(timer/900)*100);
+    bar.style.width=pct+"%";
+    if(timer<=0){ clearInterval(intervalId); grade(true); }
   },1000);
 }
 
@@ -449,44 +310,22 @@ function grade(auto=false){
       const label=r.parentElement;
       label.style.padding="6px 10px";
       label.style.borderRadius="10px";
-      if(oi===correct){
-        label.style.background="rgba(34,197,94,.15)";
-        label.style.border="1px solid rgba(34,197,94,.35)";
-        label.style.fontWeight="600";
-      }
-      if(oi===chosen && chosen!==correct){
-        label.style.background="rgba(239,68,68,.12)";
-        label.style.border="1px solid rgba(239,68,68,.35)";
-      }
+      if(oi===correct){ label.style.background="rgba(34,197,94,.15)"; label.style.border="1px solid rgba(34,197,94,.35)"; label.style.fontWeight="600";}
+      if(oi===chosen && chosen!==correct){ label.style.background="rgba(239,68,68,.12)"; label.style.border="1px solid rgba(239,68,68,.35)";}
     });
     if(chosen===correct)score++;
   });
-
-  // collect short answers
-  const shortAnswers = REFLECTION_QUESTIONS.map((_,i)=>{
-    const el = document.getElementById(`sa${i+1}`);
-    return el ? el.value.trim() : "";
-  });
-
   scoreNow.textContent=String(score);
   submitBtn.disabled=true;
   const msg=auto?"Time is up!":"Submitted.";
   result.style.display="block";
   result.innerHTML=`<strong>${msg}</strong> You scored <strong>${score}</strong> out of <strong>${TOTAL}</strong>.`;
-
   const timeUsed = Math.floor((Date.now()-quizStartTime)/1000);
 
-  // Save result with short answers
+  // Save result
   const raw=localStorage.getItem(STORAGE_KEY);
   const data=raw?JSON.parse(raw):[];
-  data.push({
-    name: currentPlayer.name,
-    code: currentPlayer.code,
-    score,
-    time: timeUsed,
-    date: new Date().toLocaleString(),
-    shortAnswers // array of typed responses
-  });
+  data.push({ name: currentPlayer.name, code: currentPlayer.code, score, time: timeUsed, date: new Date().toLocaleString() });
   localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
   loadResults();
 }
@@ -494,44 +333,12 @@ function grade(auto=false){
 function loadResults(){
   const raw=localStorage.getItem(STORAGE_KEY);
   const data=raw?JSON.parse(raw):[];
-  // sort by score desc, then time asc
-  data.sort((a,b)=>{
-    if(b.score!==a.score) return b.score-a.score;
-    return a.time-b.time;
-  });
+  data.sort((a,b)=>{ if(b.score!==a.score) return b.score-a.score; return a.time-b.time; });
   resultsBody.innerHTML="";
   data.forEach((rec,i)=>{
     const tr=document.createElement("tr");
-    tr.innerHTML=`
-      <td>${i+1}</td>
-      <td>${escapeHtml(rec.name)}</td>
-      <td>${escapeHtml(rec.code)}</td>
-      <td>${rec.score}</td>
-      <td>${rec.time}</td>
-      <td>${rec.date}</td>
-      <td><button class="btn secondary view-details" data-index="${i}">View</button></td>
-    `;
+    tr.innerHTML=`<td>${i+1}</td><td>${escapeHtml(rec.name)}</td><td>${escapeHtml(rec.code)}</td><td>${rec.score}</td><td>${rec.time}</td><td>${rec.date}</td>`;
     resultsBody.appendChild(tr);
-  });
-
-  // wire up view buttons
-  const viewBtns = document.querySelectorAll('.view-details');
-  viewBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const idx = parseInt(btn.getAttribute('data-index'));
-      const rec = data[idx];
-      const sa = (rec && rec.shortAnswers) ? rec.shortAnswers : [];
-      let html = `<strong>${escapeHtml(rec.name)} (${escapeHtml(rec.code)})</strong><br><em>Score:</em> ${rec.score} &nbsp; <em>Time:</em> ${rec.time}s<br><hr>`;
-      sa.forEach((ans, i) => {
-        html += `<strong>Q${i+1}.</strong> ${escapeHtml(REFLECTION_QUESTIONS[i])}<br>${escapeHtml(ans || "(no answer)")}<br><br>`;
-      });
-      // simple modal using window.open-like small popup
-      const w = window.open("", "_blank", "width=700,height=500,scrollbars=yes");
-      w.document.title = "Participant details";
-      w.document.body.style.fontFamily = "system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, Helvetica, sans-serif";
-      w.document.body.style.padding = "18px";
-      w.document.body.innerHTML = html;
-    });
   });
 }
 
@@ -539,18 +346,11 @@ function exportCSV(){
   const raw=localStorage.getItem(STORAGE_KEY);
   if(!raw){alert("No records");return;}
   const data=JSON.parse(raw);
-  // headers include short answer columns
-  const headers = ["Pos","Name","Code","Score","Time Used","Date"].concat(REFLECTION_QUESTIONS.map((q,i)=>`SA${i+1}`));
+  const headers=["Pos","Name","Code","Score","Time Used","Date"];
   const rows=[headers];
-  data.sort((a,b)=> {
-    if(b.score !== a.score) return b.score-a.score;
-    return a.time - b.time;
-  }).forEach((rec,i)=>{
-    const base = [i+1, rec.name, rec.code, rec.score, rec.time, rec.date];
-    const sas = (rec.shortAnswers || []).map(s => (""+s).replace(/"/g,'""')); // escape quotes
-    rows.push(base.concat(sas));
-  });
-  const csv = rows.map(r => r.map(cell => `"${(cell===undefined||cell===null)?"":cell}"`).join(",")).join("\n");
+  data.sort((a,b)=>{ if(b.score!==a.score) return b.score-a.score; return a.time-b.time; })
+      .forEach((rec,i)=>{ rows.push([i+1,rec.name,rec.code,rec.score,rec.time,rec.date]); });
+  const csv=rows.map(r=>r.map(cell=>`"${(cell===undefined||cell===null)?"":cell}"`).join(",")).join("\n");
   const blob=new Blob([csv],{type:"text/csv"});
   const a=document.createElement("a");
   a.href=URL.createObjectURL(blob);
@@ -560,23 +360,13 @@ function exportCSV(){
   a.remove();
 }
 
-// Escape simple HTML for display
-function escapeHtml(text){
-  if(text === undefined || text === null) return "";
-  return String(text)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'", "&#39;");
-}
+function escapeHtml(text){ if(text===undefined||text===null)return""; return String(text).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;"); }
 
-// === Events ===
-submitBtn.addEventListener("click",e=>{e.preventDefault(); grade(false);});
+// Events
+submitBtn.addEventListener("click",e=>{ e.preventDefault(); grade(false); });
 retryBtn.addEventListener("click",()=>{ renderQuiz(); startTimer(); });
 document.getElementById("exportResultsBtn").addEventListener("click",exportCSV);
 
-// === Login Overlay ===
 document.getElementById("startBtn").addEventListener("click",()=>{
   const name=document.getElementById("playerName").value.trim();
   const code=document.getElementById("playerCode").value.trim();
@@ -590,7 +380,6 @@ document.getElementById("startBtn").addEventListener("click",()=>{
   loadResults();
 });
 
-// === Init ===
 loadResults();
 </script>
 </body>
